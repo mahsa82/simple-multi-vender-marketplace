@@ -23,6 +23,7 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
+# create base class for declaring tables
 Base = declarative_base()
 
 
