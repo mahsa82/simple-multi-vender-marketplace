@@ -1,10 +1,9 @@
 import enum
 from datetime import datetime
 
+from core.database import Base
 from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, String, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
-from core.database import Base
 
 
 class RoleType(str, enum.Enum):
