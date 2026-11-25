@@ -4,6 +4,7 @@ from sqlalchemy import engine_from_config, pool
 
 from alembic import context
 from app.core.database import DATABASE_URL, Base
+from app.users.models import RefreshTokenModel, UserModel  # noqa: F401
 
 config = context.config
 
