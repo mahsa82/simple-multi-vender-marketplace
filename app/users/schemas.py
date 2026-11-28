@@ -1,4 +1,6 @@
-from pydantic import BaseModel, EmailStr, Field, field_validator
+from pydantic import BaseModel, EmailStr, Field, field_validator, ConfigDict
+from datetime import datetime
+from app.users.models import RoleType
 
 
 class UserLoginSchema(BaseModel):
@@ -16,3 +18,12 @@ class UserRegisterSchema(BaseModel):
         if not (password_confirm == validation.data.get("password")):
             raise ValueError("password doesnt match.")
         return password_confirm
+
+class UserResponseSchema(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    email: EmailStr
+    is_active: bool
+    role: RoleType
+    created_at: datetime
